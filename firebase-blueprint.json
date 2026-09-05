@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "UserAccount": {
+      "title": "UserAccount",
+      "description": "Registered student user account",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "studentName": { "type": "string", "maxLength": 200 },
+        "penNo": { "type": "string", "maxLength": 20 },
+        "mobile": { "type": "string", "maxLength": 20 },
+        "email": { "type": "string", "maxLength": 200 },
+        "section": { "type": "string", "maxLength": 20 },
+        "pin": { "type": "string", "maxLength": 20 },
+        "udiseCode": { "type": "string", "maxLength": 20 },
+        "district": { "type": "string", "maxLength": 100 },
+        "mandal": { "type": "string", "maxLength": 100 },
+        "registeredAt": { "type": "string", "maxLength": 100 },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["studentName", "penNo", "userId"]
+    },
+    "SSCTestAttempt": {
+      "title": "SSCTestAttempt",
+      "description": "A student's practice test attempt result",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "setId": { "type": "string", "maxLength": 128 },
+        "setTitle": { "type": "string", "maxLength": 200 },
+        "studentName": { "type": "string", "maxLength": 200 },
+        "penNo": { "type": "string", "maxLength": 20 },
+        "schoolName": { "type": "string", "maxLength": 200 },
+        "udiseCode": { "type": "string", "maxLength": 20 },
+        "mandal": { "type": "string", "maxLength": 100 },
+        "district": { "type": "string", "maxLength": 100 },
+        "date": { "type": "string", "maxLength": 100 },
+        "timestamp": { "type": "number" },
+        "timeSpentSeconds": { "type": "number" },
+        "totalScore": { "type": "number" },
+        "maxScore": { "type": "number" },
+        "percentage": { "type": "number" },
+        "gpaGrade": { "type": "string", "maxLength": 10 },
+        "gradePoints": { "type": "number" },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "setId", "userId", "totalScore"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": { "$ref": "#/entities/UserAccount" },
+      "description": "User profiles linked to Firebase Auth UID"
+    },
+    "attempts/{attemptId}": {
+      "schema": { "$ref": "#/entities/SSCTestAttempt" },
+      "description": "Global test attempts"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "SSC Students Daily Practice Test",
+  "description": "Comprehensive 60-Question, 60-Minute SSC Practice Test covering Telugu (10), English (10), Hindi (10), Maths (10), Physical Science (5), Biological Science (5), and Social Studies (10) with instant GPA grading and solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
